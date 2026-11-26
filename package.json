@@ -1,7 +1,7 @@
 {
   "name": "monthly-growth-review-beta",
-  "version": "1.0.0",
-  "description": "Monthly growth review skill for Hermes agents: five-level progress, external/internal split, continuity checks, month-end automation. Beta.",
+  "version": "1.1.0",
+  "description": "Monthly growth review skill for AI agents: five-level progress, external/internal split, continuity checks, month-end automation. Beta.",
   "bin": {
     "monthly-growth-review-install": "bin/install.js"
   },
@@ -13,10 +13,13 @@
     "LICENSE"
   ],
   "keywords": [
-    "hermes",
-    "skill",
+    "agent-skill",
     "monthly-review",
-    "agent"
+    "personal-growth",
+    "productivity",
+    "npx",
+    "claude",
+    "cursor"
   ],
   "license": "MIT",
   "engines": {

@@ -1,6 +1,6 @@
 # monthly-growth-review-beta
 
-**A Hermes agent skill that turns a month of scattered notes into one readable review — and tells you which ability actually leveled up.**
+**An agent skill that turns a month of scattered notes into one readable review — and tells you which ability actually leveled up.**
 
 Beta. The five-level scale and page format may still change.
 
@@ -28,7 +28,7 @@ It refuses to flatter. If nobody acted on your work, the review says so.
 npx monthly-growth-review-beta
 ```
 
-Installs into `~/.hermes/skills/consulting/monthly-growth-review-beta`.
+Installs into your agent skills root (auto-detected: `~/.agent/skills` → `./skills` → `~/skills` → `/opt/data/skills`).
 Custom target:
 
 ```bash
@@ -45,7 +45,7 @@ npx github:dysoncool/monthly-growth-review-beta
 
 ```bash
 mkdir -p <your-vault>/monthly-review
-cp ~/.hermes/skills/consulting/monthly-growth-review-beta/templates/monthly-review-blank.html \
+cp ~/.agent/skills/consulting/monthly-growth-review-beta/templates/monthly-review-blank.html \
    <your-vault>/monthly-review/2026-01-月度成长总结.html
 ```
 
@@ -108,7 +108,7 @@ One cron, one line of intent: run on the last day of the month at 21:00; check f
 npx monthly-growth-review-beta
 ```
 
-默认装到 `~/.hermes/skills/consulting/monthly-growth-review-beta`。换目录加 `--target`，覆盖加 `--force`。
+默认装到你的 agent 技能目录（自动探测：`~/.agent/skills` → `./skills` → `~/skills` → `/opt/data/skills`），也可用 `--target` 指定。换目录加 `--target`，覆盖加 `--force`。
 
 npm 发布前，也可以直接从 GitHub 装：
 
@@ -120,7 +120,7 @@ npx github:dysoncool/monthly-growth-review-beta
 
 ```bash
 mkdir -p <你的库>/monthly-review
-cp ~/.hermes/skills/consulting/monthly-growth-review-beta/templates/monthly-review-blank.html \
+cp ~/.agent/skills/consulting/monthly-growth-review-beta/templates/monthly-review-blank.html \
    <你的库>/monthly-review/2026-01-月度成长总结.html
 ```
 

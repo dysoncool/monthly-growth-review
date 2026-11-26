@@ -1,7 +1,7 @@
 #!/usr/bin/env node
-/** 把技能装进 Hermes 的技能目录。用法：
+/** 把技能装进你的 agent 技能目录。用法：
  *   npx monthly-growth-review-beta [--target <skills 目录>] [--force]
- * 默认目标：~/.hermes/skills/consulting/monthly-growth-review-beta
+ * 装到哪：--target 指定 > $AGENT_SKILLS_DIR > 探测（./skills、~/.agents/skills、~/skills）
  */
 const fs = require('fs');
 const path = require('path');
@@ -10,7 +10,26 @@ const os = require('os');
 const args = process.argv.slice(2);
 const get = (k) => { const i = args.indexOf(k); return i >= 0 ? args[i + 1] : null; };
 const force = args.includes('--force');
-const target = get('--target') || path.join(os.homedir(), '.hermes', 'skills', 'consulting', 'monthly-growth-review-beta');
+
+
+/** 找技能根目录：显式 --target > $AGENT_SKILLS_DIR > 探测（./skills、~/.agents/skills、~/skills） */
+function resolveRoot() {
+  const explicit = get('--target');
+  if (explicit) return explicit;
+  if (process.env.AGENT_SKILLS_DIR) return process.env.AGENT_SKILLS_DIR;
+  const home = os.homedir();
+  const candidates = [
+    path.join(process.cwd(), 'skills'),
+    path.join(home, '.agents', 'skills'),
+    path.join(home, 'skills'),
+  ];
+  for (const c of candidates) {
+    if (fs.existsSync(c)) return c;
+  }
+  return path.join(home, '.agents', 'skills');
+}
+
+const target = path.join(resolveRoot(), 'consulting', 'monthly-growth-review-beta');
 const src = path.join(__dirname, '..', 'skill');
 
 if (!fs.existsSync(src)) { console.error('✘ 找不到 skill 目录，包可能损坏'); process.exit(1); }
@@ -22,6 +41,7 @@ if (fs.existsSync(target) && !force) {
 fs.mkdirSync(path.dirname(target), { recursive: true });
 fs.cpSync(src, target, { recursive: true });
 console.log('✔ 已安装到：' + target);
+console.log('  （技能根目录：' + resolveRoot() + '；换位置用 --target）');
 console.log('');
 console.log('下一步：');
 console.log('  1. 建月报目录：mkdir -p <你的库>/monthly-review');
