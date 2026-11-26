@@ -4,7 +4,7 @@
 
 Beta. The five-level scale and page format may still change.
 
-![demo](docs/demo.png)
+![demo](https://raw.githubusercontent.com/dysoncool/monthly-growth-review-beta/main/docs/demo.png)
 
 ---
 
@@ -92,7 +92,7 @@ One cron, one line of intent: run on the last day of the month at 21:00; check f
 
 测试版。五格口径与页面样式仍可能调整。
 
-![演示](docs/demo.png)
+![演示](https://raw.githubusercontent.com/dysoncool/monthly-growth-review-beta/main/docs/demo.png)
 
 ## 它解决什么
 

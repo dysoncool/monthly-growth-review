@@ -35,5 +35,9 @@
   "homepage": "https://github.com/dysoncool/monthly-growth-review-beta#readme",
   "bugs": {
     "url": "https://github.com/dysoncool/monthly-growth-review-beta/issues"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
   }
 }
