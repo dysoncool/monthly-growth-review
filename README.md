@@ -24,23 +24,25 @@ It refuses to flatter. If nobody acted on your work, the review says so.
 
 ## Install
 
-```bash
-npx monthly-growth-review-beta
-```
-
-Installs into your agent skills root (auto-detected: `~/.agent/skills` → `./skills` → `~/skills` → `/opt/data/skills`).
-Custom target:
+One line, no account needed:
 
 ```bash
-npx monthly-growth-review-beta --target ./skills/consulting --force
+curl -fsSL https://raw.githubusercontent.com/dysoncool/monthly-growth-review-beta/main/install.sh | bash
 ```
 
-From GitHub (before the npm release):
+Custom skills root:
+
+```bash
+AGENT_SKILLS_DIR=./skills bash install.sh
+```
+
+Or via npx (needs Node 18+):
 
 ```bash
 npx github:dysoncool/monthly-growth-review-beta
 ```
 
+Both auto-detect your skills root: `./skills` → `~/.agents/skills` → `~/skills` → fallback `~/.agents/skills`.
 ## First run
 
 ```bash
@@ -104,18 +106,25 @@ One cron, one line of intent: run on the last day of the month at 21:00; check f
 
 ## 安装
 
+一条命令，不需要任何账号：
+
 ```bash
-npx monthly-growth-review-beta
+curl -fsSL https://raw.githubusercontent.com/dysoncool/monthly-growth-review-beta/main/install.sh | bash
 ```
 
-默认装到你的 agent 技能目录（自动探测：`~/.agent/skills` → `./skills` → `~/skills` → `/opt/data/skills`），也可用 `--target` 指定。换目录加 `--target`，覆盖加 `--force`。
+换目录：
 
-npm 发布前，也可以直接从 GitHub 装：
+```bash
+AGENT_SKILLS_DIR=./skills bash install.sh
+```
+
+也可以用 npx（Node 18 以上）：
 
 ```bash
 npx github:dysoncool/monthly-growth-review-beta
 ```
 
+两者都会自动找技能根目录：`./skills` → `~/.agents/skills` → `~/skills`，都没有就建 `~/.agents/skills`。
 ## 第一次用
 
 ```bash
