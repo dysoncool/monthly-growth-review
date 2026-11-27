@@ -1,5 +1,7 @@
 # monthly-growth-review
 
+[![npm](https://img.shields.io/npm/v/monthly-growth-review)](https://www.npmjs.com/package/monthly-growth-review)
+
 **把一个月的散落记录，压成一页能读的复盘——并告诉你，哪样本事真的升了级。**
 
 测试版。五格尺与版式仍会调整。
@@ -121,19 +123,17 @@ It refuses to flatter. If nobody acted on your work, the review says so.
 
 ## Install
 
-> Not on npm yet. `npx monthly-growth-review` returns 404 — use the command below.
+```bash
+npx monthly-growth-review
+```
 
-One line, no account needed:
+No npm? Use curl:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/dysoncool/monthly-growth-review/main/install.sh | bash
 ```
 
-Custom skills root:
-
-```bash
-AGENT_SKILLS_DIR=./skills bash install.sh
-```
+Custom skills root: prefix `AGENT_SKILLS_DIR=./skills`.
 
 
 The installer auto-detects your skills root: `./skills` → `~/.agents/skills` → `~/skills` → fallback `~/.agents/skills`.
