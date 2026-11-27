@@ -1,4 +1,4 @@
-# monthly-growth-review-beta
+# monthly-growth-review
 
 **把一个月的散落记录，压成一页能读的复盘——并告诉你，哪样本事真的升了级。**
 
@@ -6,7 +6,7 @@
 
 中文 ｜ [English](#english)
 
-![预览](https://raw.githubusercontent.com/dysoncool/monthly-growth-review-beta/main/docs/preview.png)
+![预览](https://raw.githubusercontent.com/dysoncool/monthly-growth-review/main/docs/preview.png)
 
 ---
 
@@ -20,12 +20,12 @@
 
 ## 安装
 
-> 还没发布到 npm，`npx monthly-growth-review-beta` 会 404。请用下面这条命令。
+> 还没发布到 npm，`npx monthly-growth-review` 会 404。请用下面这条命令。
 
 一条命令，不需要任何账号：
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/dysoncool/monthly-growth-review-beta/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/dysoncool/monthly-growth-review/main/install.sh | bash
 ```
 
 换目录：
@@ -41,7 +41,7 @@ AGENT_SKILLS_DIR=./skills bash install.sh
 安装器不替你决定。让技能自己算：
 
 ```bash
-python3 <skills>/consulting/monthly-growth-review-beta/scripts/where.py
+python3 <skills>/consulting/monthly-growth-review/scripts/where.py
 ```
 
 找到 `principal/` 的库，就建议 `<你的库>/principal/monthly-review`；找不到才退到家目录 `~/monthly-review`。
@@ -52,7 +52,7 @@ python3 <skills>/consulting/monthly-growth-review-beta/scripts/where.py
 重跑同一条命令即可，会覆盖旧版并打印「旧版本 → 新版本」：
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/dysoncool/monthly-growth-review-beta/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/dysoncool/monthly-growth-review/main/install.sh | bash
 ```
 
 你的月报不在技能目录里，更新不影响数据。
@@ -61,7 +61,7 @@ curl -fsSL https://raw.githubusercontent.com/dysoncool/monthly-growth-review-bet
 
 ```bash
 mkdir -p <你的库>/monthly-review
-cp ~/.agent/skills/consulting/monthly-growth-review-beta/templates/monthly-review-blank.html \
+cp ~/.agent/skills/consulting/monthly-growth-review/templates/monthly-review-blank.html \
    <你的库>/monthly-review/2026-01-月度成长总结.html
 ```
 
@@ -107,12 +107,12 @@ It refuses to flatter. If nobody acted on your work, the review says so.
 
 ## Install
 
-> Not on npm yet. `npx monthly-growth-review-beta` returns 404 — use the command below.
+> Not on npm yet. `npx monthly-growth-review` returns 404 — use the command below.
 
 One line, no account needed:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/dysoncool/monthly-growth-review-beta/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/dysoncool/monthly-growth-review/main/install.sh | bash
 ```
 
 Custom skills root:
@@ -128,7 +128,7 @@ The installer auto-detects your skills root: `./skills` → `~/.agents/skills` �
 The installer never decides for you. Ask the skill's helper:
 
 ```bash
-python3 <skills>/consulting/monthly-growth-review-beta/scripts/where.py
+python3 <skills>/consulting/monthly-growth-review/scripts/where.py
 ```
 
 It proposes `<your library>/principal/monthly-review` when it finds a `principal/` folder,
@@ -140,7 +140,7 @@ Never inside the skill folder.
 Re-run the same command. It replaces the old version and prints `old → new`:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/dysoncool/monthly-growth-review-beta/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/dysoncool/monthly-growth-review/main/install.sh | bash
 ```
 
 Your monthly reports stay where they are — the skill directory holds no data.
@@ -149,7 +149,7 @@ Your monthly reports stay where they are — the skill directory holds no data.
 
 ```bash
 mkdir -p <your-vault>/monthly-review
-cp ~/.agent/skills/consulting/monthly-growth-review-beta/templates/monthly-review-blank.html \
+cp ~/.agent/skills/consulting/monthly-growth-review/templates/monthly-review-blank.html \
    <your-vault>/monthly-review/2026-01-月度成长总结.html
 ```
 
@@ -195,4 +195,4 @@ One cron, one line of intent: run on the last day of the month at 21:00; check f
 
 测试版。五格口径与页面样式仍可能调整。
 
-![演示](https://raw.githubusercontent.com/dysoncool/monthly-growth-review-beta/main/docs/demo.png)
+![演示](https://raw.githubusercontent.com/dysoncool/monthly-growth-review/main/docs/demo.png)

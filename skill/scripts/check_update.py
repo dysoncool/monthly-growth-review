@@ -6,7 +6,7 @@
 """
 import hashlib, json, re, sys, urllib.request
 
-REPO = "dysoncool/monthly-growth-review-beta"
+REPO = "dysoncool/monthly-growth-review"
 API = f"https://api.github.com/repos/{REPO}/contents/skill"
 RAW = f"https://raw.githubusercontent.com/{REPO}/main/skill"
 HERE = __file__.rsplit("/", 1)[0] if "/" in __file__ else "."

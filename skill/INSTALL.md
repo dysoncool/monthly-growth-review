@@ -4,7 +4,7 @@
 
 ## 1. 放好目录
 
-把整个技能目录放到你的技能路径下（例如 `skills/consulting/monthly-growth-review-beta/`），然后建一个放月报的目录：
+把整个技能目录放到你的技能路径下（例如 `skills/consulting/monthly-growth-review/`），然后建一个放月报的目录：
 
 ```
 mkdir -p <你的库>/monthly-review

@@ -1,4 +1,4 @@
-# monthly-growth-review-beta
+# monthly-growth-review
 
 给你的月度成长出一份复盘的通用技能。
 

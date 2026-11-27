@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 # 一条命令装好：
-#   curl -fsSL https://raw.githubusercontent.com/dysoncool/monthly-growth-review-beta/main/install.sh | bash
+#   curl -fsSL https://raw.githubusercontent.com/dysoncool/monthly-growth-review/main/install.sh | bash
 # 指定目录：
 #   AGENT_SKILLS_DIR=./skills bash install.sh
 set -euo pipefail
 
-REPO="dysoncool/monthly-growth-review-beta"
-NAME="monthly-growth-review-beta"
+REPO="dysoncool/monthly-growth-review"
+NAME="monthly-growth-review"
 
 # 解析技能根目录
 ROOT="${AGENT_SKILLS_DIR:-}"
@@ -23,16 +23,31 @@ if [ -d "$DEST" ]; then
   OLD="$(cat "$DEST/VERSION" 2>/dev/null || echo "未知版本")"
 fi
 
-TMP="$(mktemp -d)"
-trap 'rm -rf "$TMP"' EXIT
-echo "→ 从 GitHub 取包…"
-curl -fsSL "https://codeload.github.com/$REPO/tar.gz/refs/heads/main" | tar -xz -C "$TMP"
-SRC="$(find "$TMP" -maxdepth 2 -type d -name skill | head -1)"
+if [ -n "${MR_SRC:-}" ]; then
+  SRC="$MR_SRC"
+  echo "→ 从本地取包：$SRC"
+else
+  TMP="$(mktemp -d)"
+  trap 'rm -rf "$TMP"' EXIT
+  echo "→ 从 GitHub 取包…"
+  curl -fsSL "https://codeload.github.com/$REPO/tar.gz/refs/heads/main" | tar -xz -C "$TMP"
+  SRC="$(find "$TMP" -maxdepth 2 -type d -name skill | head -1)"
+fi
 [ -d "$SRC" ] || { echo "✘ 包里找不到 skill 目录"; exit 1; }
 
 mkdir -p "$(dirname "$DEST")"
 rm -rf "$DEST"
 cp -R "$SRC" "$DEST"
+
+# 改名迁移：清掉旧名字留下的目录，避免同一个技能两份并存
+for old in monthly-growth-review-beta monthly-growth-review-share; do
+  d="$(dirname "$DEST")/$old"
+  if [ -d "$d" ]; then
+    rm -rf "$d"
+    echo "  已迁移旧目录：$d"
+  fi
+done
+
 NEW="$(cat "$DEST/VERSION" 2>/dev/null || echo "?")"
 if [ -n "$OLD" ]; then
   echo "✔ 已更新：$OLD → $NEW"

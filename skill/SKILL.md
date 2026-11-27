@@ -1,5 +1,5 @@
 ---
-name: monthly-growth-review-beta
+name: monthly-growth-review
 description: Use when 要给自己或客户出一份月度成长总结、势能复盘，或搭这套月度流水线。五格档位＋外用/内修分组、连续性检查、月度定时任务、可搬家模板。
 category: consulting
 ---

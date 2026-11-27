@@ -7,8 +7,8 @@ import hashlib, json, os, re, sys
 from urllib.request import Request, urlopen
 
 HOME = os.path.expanduser("~")
-REPO = "dysoncool/monthly-growth-review-beta"
-NAME = "monthly-growth-review-beta"
+REPO = "dysoncool/monthly-growth-review"
+NAME = "monthly-growth-review"
 MAXD = 5
 
 
@@ -48,7 +48,8 @@ def find_skills():
                 dirnames[:] = []
                 continue
             dirnames[:] = [d for d in dirnames if not d.startswith(".") or d == ".agents"]
-            if os.path.basename(dirpath) == NAME and os.path.isfile(os.path.join(dirpath, "SKILL.md")):
+            bn = os.path.basename(dirpath)
+            if bn in (NAME,) + LEGACY and os.path.isfile(os.path.join(dirpath, "SKILL.md")):
                 hits.append(dirpath)
     return sorted(set(hits))
 
@@ -109,6 +110,8 @@ def main():
         v = ver(d)
         h = style_hash(os.path.join(d, "templates/monthly-review-blank.html"))
         tag = "样式一致" if h and h == off_hash else "样式不同"
+        if os.path.basename(d) in LEGACY:
+            tag += " · 旧名字，建议删掉"
         print(f"  [{v}] {d}  ({tag})")
     if len(skills) > 1:
         print("")

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /** 把技能装进你的 agent 技能目录。用法：
- *   npx monthly-growth-review-beta [--target <skills 目录>] [--force]
+ *   npx monthly-growth-review [--target <skills 目录>] [--force]
  * 装到哪：--target 指定 > $AGENT_SKILLS_DIR > 探测（./skills、~/.agents/skills、~/skills）
  */
 const fs = require('fs');
@@ -29,7 +29,7 @@ function resolveRoot() {
   return path.join(home, '.agents', 'skills');
 }
 
-const target = path.join(resolveRoot(), 'consulting', 'monthly-growth-review-beta');
+const target = path.join(resolveRoot(), 'consulting', 'monthly-growth-review');
 const src = path.join(__dirname, '..', 'skill');
 
 if (!fs.existsSync(src)) { console.error('✘ 找不到 skill 目录，包可能损坏'); process.exit(1); }
@@ -42,6 +42,15 @@ fs.mkdirSync(path.dirname(target), { recursive: true });
 if (isUpdate) fs.rmSync(target, { recursive: true, force: true });
 fs.cpSync(src, target, { recursive: true });
 const newVer = readVer(target);
+// 改名迁移：旧名字的目录一并清掉，避免两份并存被 agent 读到
+for (const oldName of ['monthly-growth-review-beta', 'monthly-growth-review-share']) {
+  const oldDir = path.join(path.dirname(target), oldName);
+  if (fs.existsSync(oldDir)) {
+    fs.rmSync(oldDir, { recursive: true, force: true });
+    console.log('  已迁移旧目录：' + oldDir);
+  }
+}
+
 if (isUpdate) {
   console.log('✔ 已更新：' + oldVer + ' → ' + newVer);
   console.log('  （新版覆盖旧版；你的月报和数据在别处，不受影响）');
