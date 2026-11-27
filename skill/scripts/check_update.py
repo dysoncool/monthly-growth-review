@@ -7,13 +7,24 @@
 import hashlib, json, re, sys, urllib.request
 
 REPO = "dysoncool/monthly-growth-review-beta"
+API = f"https://api.github.com/repos/{REPO}/contents/skill"
 RAW = f"https://raw.githubusercontent.com/{REPO}/main/skill"
 HERE = __file__.rsplit("/", 1)[0] if "/" in __file__ else "."
 
 
-def fetch(url, timeout=8):
-    with urllib.request.urlopen(url, timeout=timeout) as r:
-        return r.read().decode("utf-8")
+def fetch(path, timeout=8):
+    """先走 API（不吃 CDN 缓存），失败再退 raw。"""
+    import base64
+    req = urllib.request.Request(f"{API}/{path}?ref=main",
+                                 headers={"Accept": "application/vnd.github+json",
+                                          "User-Agent": "monthly-review-check"})
+    try:
+        with urllib.request.urlopen(req, timeout=timeout) as r:
+            data = json.loads(r.read().decode("utf-8"))
+        return base64.b64decode(data["content"]).decode("utf-8")
+    except Exception:
+        with urllib.request.urlopen(f"{RAW}/{path}", timeout=timeout) as r:
+            return r.read().decode("utf-8")
 
 
 def style(txt):
@@ -29,8 +40,8 @@ def main():
         print("✘ 找不到 VERSION，安装不完整，请重装")
         return 3
     try:
-        remote_ver = fetch(f"{RAW}/VERSION").strip()
-        remote_tpl = fetch(f"{RAW}/templates/monthly-review-blank.html")
+        remote_ver = fetch("VERSION").strip()
+        remote_tpl = fetch("templates/monthly-review-blank.html")
     except Exception as e:
         if not quiet:
             print(f"? 连不上 GitHub（{type(e).__name__}），跳过版本检查")
