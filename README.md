@@ -8,6 +8,8 @@
 
 ![预览](https://raw.githubusercontent.com/dysoncool/monthly-growth-review/main/docs/preview.png)
 
+<sub>图中数据为虚构示例，用来展示版式。</sub>
+
 ---
 
 ## 它解决什么
@@ -17,6 +19,18 @@
 这套东西只问五个问题，并要求每个答案带日期证据：做成了什么／哪样本事升了级／哪条路越走越省力／哪里在漏／怎样才算站住。
 
 它不负责夸人。没人因你行动，它就直说。
+
+## 安装脚本做了什么
+
+不放心 `curl | bash` 就别用，可以手动来：
+
+```bash
+git clone https://github.com/dysoncool/monthly-growth-review.git
+cp -R monthly-growth-review/skill <你的技能目录>/consulting/monthly-growth-review
+```
+
+`install.sh` 只有四件事：从本仓库取包 → 找技能目录 → 复制进去 → 清掉旧名字的目录。
+不写系统文件，不装依赖，不联网上报。
 
 ## 安装
 
@@ -195,4 +209,4 @@ One cron, one line of intent: run on the last day of the month at 21:00; check f
 
 测试版。五格口径与页面样式仍可能调整。
 
-![演示](https://raw.githubusercontent.com/dysoncool/monthly-growth-review/main/docs/demo.png)
+![演示](https://raw.githubusercontent.com/dysoncool/monthly-growth-review/main/docs/preview.png)

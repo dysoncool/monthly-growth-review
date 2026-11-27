@@ -41,7 +41,7 @@ def _roots():
                    if os.path.isdir(os.path.join(base, d)) and not d.startswith(".")]
         except OSError:
             pass
-    for extra in ("/data", "/workspace", "/srv", "/opt/data"):
+    for extra in ("/data", "/workspace", "/srv"):
         rs.append(extra)
     out = []
     for r in rs:
@@ -102,7 +102,7 @@ def main():
     print(f"月报放：{base}")
     print(f"依据：{why}")
     print("")
-    print("不要放在：技能安装目录、家目录根、/opt/data 根。")
+    print("不要放在：技能安装目录、家目录根、系统盘根。")
 
     if fixed:
         return 0
