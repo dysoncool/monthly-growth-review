@@ -1,146 +1,232 @@
 <!DOCTYPE html>
-<html lang="zh-CN"><head><meta charset="UTF-8">
+<html lang="zh-CN">
+<head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>【张三】个人月度复盘总结——2026 年 1 月</title>
 <style>
-:root{--paper:#faf7f3;--ink:#1b1a18;--ink-2:#4a4742;--ink-3:#8a857c;--line:#e3ddd3;--card:#fffdf9;--accent:#ab372f;--soft:#f2e5e0}
-*{box-sizing:border-box}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.75}
-.wrap{max-width:720px;margin:0 auto;padding:22px 18px 40px}
-header h1{font-size:22px;font-weight:800;color:#22384a;margin:0 0 6px;line-height:1.4}
-.meta{font-size:12px;color:var(--ink-3)}
-.hero{margin:18px 0;padding:14px 16px;background:var(--card);border-left:3px solid var(--accent)}
-.hero p{font-size:17px;font-weight:700;margin:0 0 6px}
-.hero .sub{font-size:13.5px;color:var(--ink-2)}
-.statslist{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);background:var(--card);margin:0 0 18px}
-.srow{padding:10px 9px;border-left:1px solid var(--line)}
-.srow:first-child{border-left:0}
-.num b{font-size:20px;color:#22384a;display:block}
-.num span{font-size:10.5px;color:var(--ink-3)}
-.txt{font-size:10.5px;color:var(--ink-2);line-height:1.5}
-.txt .no{color:var(--ink-3)}
-.srow .num b.hi{color:var(--accent)}
-h2{font-size:17px;color:#22384a;margin:26px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+  :root{--paper:#faf7f3;--ink:#1b1a18;--ink-2:#4a4742;--ink-3:#8a857c;--line:#e3ddd3;--card:#fffdf9;--accent:#ab372f;--soft:#f2e5e0}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);line-height:1.78;
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Noto Sans SC","Microsoft YaHei",sans-serif;
+    -webkit-font-smoothing:antialiased}
+  .wrap{max-width:700px;margin:0 auto;padding:50px 24px 76px}
+  header{padding:6px 0 22px;border-bottom:2px solid #22384a}
+  h1{font-size:clamp(19px,3.4vw,27px);line-height:1.38;margin:4px 0 8px;font-weight:800;letter-spacing:-.03em;color:#22384a}
+  .meta{font-size:12.5px;color:var(--ink-3)}
+
+
+  .hero{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--accent);padding:26px;margin:28px 0 0}
+  .hero p{margin:0;font-size:21px;line-height:1.62;font-weight:700}
+  .hero .sub{margin-top:12px;font-size:14.8px;color:var(--ink-2);font-weight:400;line-height:1.9}
+
+  .statslist{border:1px solid var(--line);background:var(--card);margin:22px 0 0}
+  .srow{display:grid;grid-template-columns:84px 1fr;gap:16px;padding:16px 18px;border-bottom:1px solid var(--line)}
+  .srow:last-child{border-bottom:0}
+  .srow .num{text-align:right}
+  .srow .num b{display:block;font-size:27px;font-weight:800;line-height:1.15;letter-spacing:-.02em;color:#22384a}
+  .srow .num span{display:block;font-size:11.5px;color:var(--ink-3);margin-top:3px;line-height:1.4}
+  .srow .txt{font-size:13.6px;color:var(--ink-2);line-height:1.78}
+  .srow .txt b{color:var(--ink);font-weight:600}
+  .srow .txt .no{color:var(--accent)}
+  h2{font-size:21px;line-height:1.45;letter-spacing:-.01em;color:var(--ink);font-weight:700;margin:48px 0 16px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+
+  .group{margin-bottom:16px}
+  .group:last-child{margin-bottom:0}
+  .group>h4{margin:0 0 9px;font-size:12px;letter-spacing:.1em;color:var(--accent);font-weight:600}
+  .row{display:grid;grid-template-columns:56px 1fr;gap:12px;padding:6px 0;font-size:14.8px;line-height:1.72}
+  .row time{font-size:12px;color:var(--ink-3);font-variant-numeric:tabular-nums;padding-top:3px}
+  .row span{color:var(--ink-2)}
+  .row span b{color:var(--ink);font-weight:600}
+  .box{border:1px solid var(--line);background:var(--card);padding:20px}
+
+  .legend{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:0 0 10px}
+  .legend div{background:var(--card);padding:9px 10px;font-size:11.5px;color:var(--ink-2);line-height:1.55}
+  .legend b{display:block;font-size:12px;color:var(--accent);margin-bottom:2px}
+  .bars{border:1px solid var(--line);background:var(--card)}
+  .bars .b{padding:13px 16px;border-bottom:1px solid var(--line)}
+  .bars .b:last-child{border-bottom:0}
+  .bars .top{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:7px}
+  .bars .nm{font-size:14.8px;font-weight:700}
+  .bars .lv{font-size:11px;color:var(--accent);white-space:nowrap}
+  .track{background:#eee7dd;height:10px;margin-bottom:8px}
+  .track i{display:block;background:#eee7dc}
+  .track i.on{background:var(--accent)}
+  .track i.on.l4{background:#2f6b4f}
+  .bars .why{font-size:12.8px;color:var(--ink-3);line-height:1.7}
+  .bars .why b{color:var(--ink-2);font-weight:600}
+
+  .money{width:100%;border-collapse:collapse;border:1px solid var(--line);background:var(--card);font-size:13.8px;margin:0 0 12px}
+  .money th,.money td{padding:9px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+  .money th{font-size:11.5px;color:var(--ink-3);font-weight:600;background:#fdfbf6}
+  .money tr:last-child td{border-bottom:0}
+  .money td b{font-weight:600;color:var(--ink)}
+  .money .na{color:var(--accent)}
+
+  .dirlist{border:1px solid var(--line);background:var(--card)}
+  .dirlist .row2{padding:15px 18px;border-bottom:1px solid var(--line)}
+  .dirlist .row2:last-child{border-bottom:0}
+  .dirlist .row2>b{font-size:15px;font-weight:700;display:block;margin-bottom:7px;line-height:1.55}
+  .dirlist dl{margin:0;display:grid;grid-template-columns:68px 1fr;gap:4px 10px;font-size:13.8px}
+  .dirlist dt{color:var(--ink-3);font-size:12px}
+  .dirlist dd{margin:0;color:var(--ink-2);line-height:1.7}
+  .dirlist dd b{color:var(--ink);font-weight:600}
+
+  .costs{list-style:none;padding:0;margin:0;border:1px solid var(--line);background:var(--card)}
+  .costs li{padding:14px 18px;border-bottom:1px solid var(--line);font-size:14.8px;line-height:1.78}
+  .costs li:last-child{border-bottom:0}
+  .costs b{display:block;font-weight:700;margin-bottom:4px}
+  .costs span{color:var(--ink-2)}
+  .costs em{font-style:normal;color:var(--accent);font-weight:600;margin-right:5px}
+
+  .cond{background:var(--card);border:1px solid var(--line);padding:20px;font-size:14.8px;line-height:1.88}
+  .cond p{margin:0 0 11px}
+  .cond p:last-child{margin-bottom:0}
+  .cond .k{color:var(--accent);font-weight:600;margin-right:6px}
+
+  .next{background:var(--soft);padding:26px;margin-top:38px}
+  .next .lab{font-size:11px;letter-spacing:.16em;color:var(--accent);margin-bottom:10px}
+  .next p{margin:0;font-size:18px;font-weight:700;line-height:1.7}
+  .next .small{margin-top:11px;font-size:13px;font-weight:400;color:var(--ink-2);line-height:1.78}
+
+  footer{margin-top:38px;padding-top:16px;border-top:1px solid var(--line);font-size:12px;color:var(--ink-3);line-height:1.95}
+  footer b{color:var(--ink-2);font-weight:600}
+  footer .close{display:block;margin-top:12px;color:var(--ink-2);font-size:13.5px;line-height:1.85}
+
+  @media (max-width:520px){
+    .wrap{padding:34px 18px 60px}
+    h1{font-size:20px;line-height:1.42}
+    h2{font-size:18.5px}
+    .hero p{font-size:18.5px}
+    .row{grid-template-columns:50px 1fr;gap:10px}
+    .dirlist dl{grid-template-columns:60px 1fr}
+  }
+  .srow .num b.hi{color:var(--accent)}
+.b .pay{font-size:12.5px;color:#6f6a61;margin-top:5px;border-left:2px solid #d9d3c7;padding-left:7px}
+.b.unpaid .pay{color:var(--accent);border-left-color:var(--accent)}
+.grp{font-size:12.5px;color:#8a857c;letter-spacing:1px;padding:9px 13px 5px;background:#faf7f1;border-bottom:1px solid var(--line)}
+.grp b{color:#22384a;font-weight:700;margin-right:6px}
 .tiers{display:grid;grid-template-columns:repeat(5,1fr);border:1px solid var(--line);background:var(--card);margin:0 0 12px}
 .tiers div{padding:7px 6px;border-left:1px solid var(--line)}
 .tiers div:first-child{border-left:0}
-.tiers b{display:block;font-size:10.5px;color:var(--accent);line-height:1.35;margin-bottom:2px}
-.tiers b::after{content:"→";margin-left:3px;color:#cbb9ae;font-weight:400;font-size:9px}
-.tiers span{display:block;font-size:9px;color:#7a746a;line-height:1.45}
-.bars{border:1px solid var(--line);background:var(--card)}
-.grp{font-size:11.5px;color:var(--ink-3);letter-spacing:1px;padding:8px 12px 4px;background:#faf7f1;border-bottom:1px solid var(--line)}
-.grp b{color:#22384a;margin-right:6px}
-.b{padding:12px 14px;border-bottom:1px solid var(--line)}
-.top{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:6px}
-.nm{font-size:14px;font-weight:700}
-.lv{font-size:11px;color:var(--accent);white-space:nowrap}
-.track{background:#eee7dd;height:10px;margin-bottom:7px}
+.tiers b{display:block;font-size:11px;color:var(--accent);font-weight:700;line-height:1.35;margin-bottom:3px}
+.tiers span{display:block;font-size:9.5px;color:#7a746a;line-height:1.45;margin-top:2px}
+.tiers em{font-style:normal;font-weight:700;color:#4a4742;margin-right:2px}
+.track{background:#eee7dd;height:10px;margin-bottom:8px}
 .track .fill{display:block;height:10px;background:var(--accent)}
-.why{font-size:12.5px;color:var(--ink-2)}
-.note{margin:12px;padding:10px 12px;background:#fdf6f3;border-left:3px solid var(--accent);font-size:12.5px;color:var(--ink-2)}
+.tiers{display:grid;grid-template-columns:repeat(5,1fr);border:1px solid var(--line);background:var(--card);margin:0 0 12px}
+.tiers div{padding:7px 6px;border-left:1px solid var(--line)}
+.tiers div:first-child{border-left:0}
+.tiers b{display:block;font-size:11px;color:var(--accent);font-weight:700;line-height:1.35;margin-bottom:3px}
+.tiers span{display:block;font-size:9.5px;color:#7a746a;line-height:1.45;margin-top:2px}
+.tiers em{font-style:normal;font-weight:700;color:#4a4742;margin-right:2px}
+.note{margin:12px 13px;padding:10px 12px;background:#fdf6f3;border-left:3px solid var(--accent);font-size:12.5px;color:#4a4742;line-height:1.75}
 .note b{color:var(--accent);margin-right:6px}
-.box{border:1px solid var(--line);background:var(--card);padding:12px 14px}
-.group h4{font-size:13px;margin:10px 0 4px;color:#22384a}
-.row{font-size:12.5px;color:var(--ink-2);padding:3px 0}
-.row time{color:var(--ink-3);margin-right:6px}
-ul.costs{list-style:none;padding:0;margin:0}
-ul.costs li{border-bottom:1px solid var(--line);padding:9px 0;font-size:13px}
-ul.costs li b{display:block;color:#22384a}
-ul.costs li span{color:var(--ink-2);font-size:12.5px}
-ul.costs li em{font-style:normal;color:var(--accent);font-size:12px;margin-left:6px}
-.cond{background:var(--card);border:1px solid var(--line);padding:12px 14px}
-.cond p{font-size:13px;margin:6px 0}
-.cond .k{display:inline-block;min-width:86px;color:var(--ink-3);font-size:12px}
-.next{margin:22px 0 0;padding:14px 16px;background:var(--soft);border-left:3px solid var(--accent)}
-.next .lab{font-size:11.5px;color:var(--accent);letter-spacing:1px;margin-bottom:4px}
-.next p{font-size:15px;font-weight:700;margin:0}
-footer{margin-top:22px;font-size:11.5px;color:var(--ink-3);line-height:1.9}
-footer b{color:var(--ink-2)}
-footer .close{display:block;margin-top:8px;color:#22384a}
+.tiers b::after{content:"→";margin-left:4px;color:#cbb9ae;font-weight:400;font-size:10px}
 .beta{position:absolute;top:10px;right:10px;border:1px solid var(--accent);color:var(--accent);font-size:10.5px;letter-spacing:1px;padding:2px 7px;border-radius:2px;background:#fff}
 header{position:relative}
-</style></head><body><div class="wrap">
+</style>
+</head>
+<body>
+<div class="wrap">
 
-<header><div class="beta">测试版</div>
-  <h1>【张三】个人月度复盘总结——2026 年 1 月</h1>
-  <div class="meta">01-01 至 01-31 ｜ 2026-02-01 出</div>
-</header>
+  <header>
+    <div class="beta">测试版</div>
+    <h1>【张三】个人月度复盘总结<wbr>——2026 年 1 月</h1>
+    <div class="meta">01-01 至 01-31 ｜ 2026-02-01 出</div>
+  </header>
 
-<section class="hero">
-  <p>这个月把交付流程跑通了，钱还没跟上来。</p>
-  <div class="sub">三件事：第一个客户用起来了、第二份报价发出去了、写作停了半个月。到账为零。</div>
-</section>
+  <section class="hero">
+    <p>这个月把交付流程跑通了，钱还没跟上来。</p>
+    <div class="sub">第一位客户用起来、第二份报价发出去、写作停了两周；到账为零，因为还没人开口说「多少钱」。</div>
+  </section>
 
-<section class="statslist">
-  <div class="srow"><div class="num"><b>26</b><span>天</span></div><div class="txt"><b>有记录的天数。</b><span class="no">推送不算。</span></div></div>
-  <div class="srow"><div class="num"><b>62</b><span>件</span></div><div class="txt"><b>做过的事。</b>其中一半在改流程。</div></div>
-  <div class="srow"><div class="num"><b class="hi">71%</b><span>有结果</span></div><div class="txt"><b>有结果的比例。</b>44 件有、18 件无。</div></div>
-  <div class="srow"><div class="num"><b>0</b><span>元</span></div><div class="txt"><b>到账。</b><span class="no">报价、答应都不算。</span></div></div>
-</section>
+  <section class="statslist">
+    <div class="srow"><div class="num"><b>26</b><span>天</span></div><div class="txt"><b>有记录的天数。</b>01-01 至 01-31，缺 4 天。<span class="no">系统推送、定时任务不算。</span></div></div>
+    <div class="srow"><div class="num"><b>62</b><span>件</span></div><div class="txt"><b>这个月做过的事。</b>其中一半在改流程。</div></div>
+    <div class="srow"><div class="num"><b class="hi">71%</b><span>有结果</span></div><div class="txt"><b>做事有结果的比例。</b>62 件里 44 件带来实际结果，负向 8 件，10 件待验证。</div></div>
+    <div class="srow"><div class="num"><b>0</b><span>元</span></div><div class="txt"><b>这个月进来的钱。</b>两份报价发出去，没到账。<span class="no">报价、答应、口头意向都不算。</span></div></div>
+  </section>
 
-<h2>一、这个月，你做成了什么？</h2>
-<div class="box">
-  <div class="group"><h4>最好的三刻</h4>
-    <div class="row"><time>01-08</time><span><b>第一个客户开始用</b>　客户甲主动发来第一条使用反馈。</span></div>
-    <div class="row"><time>01-17</time><span><b>把报价写成了一页纸</b>　从此不用每次从头讲。</span></div>
-    <div class="row"><time>01-25</time><span><b>拒掉一个不合适的单</b>　当场说清边界。</span></div>
+  <h2>一、这个月，你做成了什么？</h2>
+  <div class="box">
+    <div class="group"><h4>最好的三刻</h4>
+      <div class="row"><time>01-08</time><span><b>第一位客户用起来</b>　客户甲主动发来第一条使用反馈。</span></div>
+      <div class="row"><time>01-17</time><span><b>把报价写成一页纸</b>　从此不用每次从头讲。</span></div>
+      <div class="row"><time>01-25</time><span><b>拒掉一个不合适的单</b>　当场说清边界，事后没后悔。</span></div>
+    </div>
+    <div class="group"><h4>别人能收到的</h4>
+      <div class="row"><time>01-08</time><span><b>客户甲第一次用上</b>　客户甲说「比原来快一半」。</span></div>
+      <div class="row"><time>01-19</time><span><b>第二位客户拿到试用</b>　约了下周复盘。</span></div>
+    </div>
+    <div class="group"><h4>你自己手里多出来的</h4>
+      <div class="row"><time>01-12</time><span><b>交付流程写成了文档</b>　从口头讲变成照着做。</span></div>
+      <div class="row"><time>01-23</time><span><b>价目表定版</b>　三个档位，写清「不含什么」。</span></div>
+    </div>
   </div>
-  <div class="group"><h4>别人能收到的</h4>
-    <div class="row"><time>01-08</time><span><b>客户甲第一次用上</b>　客户甲说「比原来快一半」。</span></div>
-    <div class="row"><time>01-19</time><span><b>第二个客户拿到试用</b>　约了下周复盘。</span></div>
+
+  <h2>二、势能——你的几样本事，现在攒到哪一步？</h2>
+  <div class="tiers">
+    <div><b>刚冒头</b><span>第一次获得正反馈</span></div>
+    <div><b>开始积累</b><span>至少三次，横跨两周</span></div>
+    <div><b>初有效果</b><span>产生重要改变或改善</span></div>
+    <div><b>值得重视</b><span>有回头客，或压力期没断</span></div>
+    <div><b>略有小成</b><span>系统化、方法论、更轻松</span></div>
   </div>
+  <div class="bars">
+    <div class="grp"><b>外用</b>对着外面出手的：交付、报价、写东西</div>
+    <div class="b"><div class="top"><span class="nm">交付</span><span class="lv">初有效果</span></div><div class="track"><i class="fill" style="width:60%"></i></div><div class="why">01-08 客户甲用起来并主动反馈；01-19 第二位拿到试用。再往上一步：让其中一位自己续费。</div></div>
+    <div class="b"><div class="top"><span class="nm">开口（报价）</span><span class="lv">开始积累</span></div><div class="track"><i class="fill" style="width:40%"></i></div><div class="why">01-12、01-17、01-24 三次报出价格，仍要我先提。再往上一步：对方听完第二天自己回话。</div></div>
+    <div class="b"><div class="top"><span class="nm">写东西</span><span class="lv">刚冒头</span></div><div class="track"><i class="fill" style="width:20%"></i></div><div class="why">01-06 发了一篇，之后停两周。再往上一步：一篇带来一个主动来问的人。</div></div>
+    <div class="grp"><b>内修</b>对自己使的：手艺、身体、记录</div>
+    <div class="b"><div class="top"><span class="nm">把手艺做成方法</span><span class="lv">开始积累</span></div><div class="track"><i class="fill" style="width:40%"></i></div><div class="why">01-05、01-11、01-17、01-23 四次整理成文档。再往上一步：别人照文档也能做出来。</div></div>
+    <div class="b"><div class="top"><span class="nm">照顾自己</span><span class="lv">刚冒头</span></div><div class="track"><i class="fill" style="width:20%"></i></div><div class="why">01-02 起有站桩记录，只连了三天。再往上一步：连续七天。</div></div>
+  </div>
+  <div class="note"><b>提醒</b>内修只有「整理文档、站桩三天」两样，缺养神的：读书、静坐，这个月一次都没有。</div>
+
+  <h2>三、哪条路能越走越省力？</h2>
+  <div class="dirlist">
+    <div class="row2"><b>① 把交付流程写成一页</b>
+      <dl><dt>能省力吗</dt><dd><b>能。</b>一次写好，每位客户复用</dd>
+        <dt>要先做到</dt><dd>把流程写成五步，每步一句</dd>
+        <dt>怎么算成了</dt><dd>第二位客户不用我重讲就会用</dd>
+        <dt>多久能看出</dt><dd>一个月</dd></dl>
+    </div>
+    <div class="row2"><b>② 把报价做成一页价目</b>
+      <dl><dt>能省力吗</dt><dd><b>能。</b>不再临场编说法</dd>
+        <dt>要先做到</dt><dd>三个档位，写清「不含什么」</dd>
+        <dt>怎么算成了</dt><dd>有人看完价目直接说「就这个」</dd>
+        <dt>多久能看出</dt><dd>两个月</dd></dl>
+    </div>
+  </div>
+
+  <h2>四、哪些地方在漏？</h2>
+  <ul class="costs">
+    <li><b>报价靠临场</b><span>三次报价说法都不一样，客户听不出区别。</span><em>怎么补</em>写死一页价目，不再临场编。</li>
+    <li><b>写作停了半个月</b><span>01-06 之后没再发，理由一直是「没时间」。</span><em>怎么补</em>一个月只写一篇，写完就发。</li>
+    <li><b>新工具尝鲜吃掉时间</b><span>01-14 装了两个插件，当天就弃用。</span><em>怎么补</em>装之前先写一句「它解决哪个具体问题」，写不出就不装。</li>
+  </ul>
+
+  <h2>五、怎样才算真的站住了？</h2>
+  <div class="cond">
+    <p><span class="k">算站住了</span>有一个人自己续费，不用我催。</p>
+    <p><span class="k">还不算</span>两位都在试用，钱没进来——那只是被试用，不是被需要。</p>
+    <p><span class="k">别人给的回话</span>01-08 客户甲主动反馈／01-19 客户乙拿到试用／01-24 有人问价。</p>
+    <p><span class="k">这话什么时候得收回</span>如果二月还是零到账，这套流程就只算自娱。</p>
+  </div>
+
+  <section class="next">
+    <div class="lab">接下来只做一件事 · 我建议，你定</div>
+    <p>让客户甲自己续一次费。<br>不是再给优惠，是等对方主动开口说「续」。</p>
+    <p class="small">本期为示例：数据是假的，结构是真的。</p>
+  </section>
+
+  <footer>
+    <b>数据从哪来</b>　本月 26 天记录。有记错的地方，说一声，我改。<br>
+    <b>怎么算的</b>　有结果没结果，看每天记录后面写的「得到什么」；钱只看真到账。<br>
+    <b>哪里缺了</b>　没有日记、一位客户没记价格，所以不猜状态，也算不出客单价。
+    <span class="close">这个月你把流程跑通了，只是流程还不会自己挣钱。</span>
+  </footer>
+
 </div>
-
-<h2>二、势能——你的几样本事，现在攒到哪一步？</h2>
-<div class="tiers">
-  <div><b>刚冒头</b><span>第一次获得正反馈</span></div>
-  <div><b>开始积累</b><span>至少三次，横跨两周</span></div>
-  <div><b>初有效果</b><span>产生重要改变或改善</span></div>
-  <div><b>值得重视</b><span>有回头客，或压力期没断</span></div>
-  <div><b>略有小成</b><span>系统化、方法论、更轻松</span></div>
-</div>
-<div class="bars">
-  <div class="grp"><b>外用</b>对着外面出手的三条</div>
-  <div class="b"><div class="top"><span class="nm">交付</span><span class="lv">初有效果</span></div><div class="track"><i class="fill" style="width:60%"></i></div><div class="why">01-08 客户甲用起来并主动反馈，01-19 第二个客户拿到试用。再往上一步：让其中一位自己续费。</div></div>
-  <div class="b"><div class="top"><span class="nm">开口（报价）</span><span class="lv">开始积累</span></div><div class="track"><i class="fill" style="width:40%"></i></div><div class="why">01-12、01-17、01-24 三次报出价格，仍要我先提。再往上一步：有人听完价格第二天自己回话。</div></div>
-  <div class="b"><div class="top"><span class="nm">写东西</span><span class="lv">刚冒头</span></div><div class="track"><i class="fill" style="width:20%"></i></div><div class="why">01-06 发了一篇，之后停了两周。再往上一步：一篇带来一个主动来问的人。</div></div>
-  <div class="grp"><b>内修</b>对自己使的两条</div>
-  <div class="b"><div class="top"><span class="nm">把手艺做成方法</span><span class="lv">开始积累</span></div><div class="track"><i class="fill" style="width:40%"></i></div><div class="why">01-05、01-11、01-17、01-23 四次整理成文档，跨两周。再往上一步：别人照着文档也能做出来。</div></div>
-  <div class="b"><div class="top"><span class="nm">照顾自己</span><span class="lv">刚冒头</span></div><div class="track"><i class="fill" style="width:20%"></i></div><div class="why">01-02 起有站桩记录，只连了三天。再往上一步：连续七天。</div></div>
-</div>
-<div class="note"><b>提醒</b>内修只有「整理文档、站桩三天」两样，缺养神的：读书、静坐，这个月一次都没有。</div>
-
-<h2>三、哪条路能越走越省力？</h2>
-<div class="cond">
-  <p><span class="k">先做这条</span>把交付流程写成一页：一次写好，每位客户复用。</p>
-  <p><span class="k">怎么算成</span>第二位客户不用我重讲一遍就会用。</p>
-  <p><span class="k">多久看出</span>一个月。</p>
-</div>
-
-<h2>四、哪些地方在漏？</h2>
-<ul class="costs">
-  <li><b>报价靠临场</b><span>三次报价说法都不一样。</span><em>怎么补</em>写死一页价目，不再临场编。</li>
-  <li><b>写作停了半个月</b><span>01-06 之后没再发。</span><em>怎么补</em>一个月只写一篇，写完就发。</li>
-</ul>
-
-<h2>五、怎样才算真的站住了？</h2>
-<div class="cond">
-  <p><span class="k">算站住</span>有一个人自己续费，不用我催。</p>
-  <p><span class="k">还不算</span>两位都在试用，钱没进来。</p>
-  <p><span class="k">回话</span>01-08 客户甲主动反馈、01-19 客户乙拿到试用。</p>
-  <p><span class="k">什么时候收回</span>如果二月还是零到账，这套流程只算自娱。</p>
-</div>
-
-<section class="next">
-  <div class="lab">接下来只做一件事</div>
-  <p>让客户甲自己续一次费。</p>
-</section>
-
-<footer>
-  <b>数据从哪来</b>　本月 26 天记录。<br>
-  <b>怎么算的</b>　看每天记录后面写的「得到什么」；钱只看真到账。<br>
-  <b>哪里缺了</b>　没有日记，一位客户没记价格。
-  <span class="close">这个月你把流程跑通了，只是流程还不会自己挣钱。</span>
-</footer>
-
-</div></body></html>
+</body>
+</html>
