@@ -9,6 +9,22 @@ category: consulting
 给一个人出他自己的月度账：这个月做成了什么、几样本事攒到第几格、哪里在漏、下一步只做一件。
 **不是汇报工作量，是让他看见积累。**
 
+## 零、出稿只有一条路（硬规则，先看这条）
+
+**版式只有一个来源：模板文件。** 不复制模板就出稿，一律算错。
+
+```bash
+python3 scripts/check_update.py                                  # 1. 先验版本
+cp templates/monthly-review-blank.html <库>/monthly-review/2026-01-月度成长总结.html   # 2. 复制
+python3 scripts/check_page.py <成品>                              # 3. 自检 19 项
+```
+
+- `check_update.py` 退出码不是 0 → 先更新，别继续。落后版本出的稿会与新版不一致。
+- 复制模板后**只改文字**：删掉示例句，换成真数据。
+- **禁止自己写 HTML/CSS**；禁止改 `<style>` 里任何一行；不换框架、不换字体、不加减 class。
+- 用户说「样式不对」→ 第一动作是跑 `check_update.py`，不是改样式。
+- 自检结果要贴给用户，不许只说「已通过」。
+
 ## 一、开工前先定四件事（一次问清，别边做边问）
 
 1. **给谁看**：本人自用，还是要发给别人。
@@ -63,6 +79,7 @@ python3 scripts/check_continuity.py --base <库> --start YYYY-MM
 ```bash
 python3 scripts/check_page.py <成品.html>      # 19 项
 python3 scripts/check_clean.py <成品.html>     # 脱敏：不许留真名、真金额、本机路径
+python3 scripts/check_update.py               # 版本与模板是否最新、有没有被改
 ```
 
 全绿再发。**发文件必须写 `MEDIA:<绝对路径>`**，漏了＝发不出去。

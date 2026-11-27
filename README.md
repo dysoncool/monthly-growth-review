@@ -24,6 +24,8 @@ It refuses to flatter. If nobody acted on your work, the review says so.
 
 ## Install
 
+> Not on npm yet. `npx monthly-growth-review-beta` returns 404 — use the command below.
+
 One line, no account needed:
 
 ```bash
@@ -110,6 +112,8 @@ One cron, one line of intent: run on the last day of the month at 21:00; check f
 它不负责夸人。没人因你行动，它就直说。
 
 ## 安装
+
+> 还没发布到 npm，`npx monthly-growth-review-beta` 会 404。请用下面这条命令。
 
 一条命令，不需要任何账号：
 
