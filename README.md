@@ -40,6 +40,18 @@ AGENT_SKILLS_DIR=./skills bash install.sh
 
 
 The installer auto-detects your skills root: `./skills` → `~/.agents/skills` → `~/skills` → fallback `~/.agents/skills`.
+## Where reports live
+
+The installer never decides for you. Ask the skill's helper:
+
+```bash
+python3 <skills>/consulting/monthly-growth-review-beta/scripts/where.py
+```
+
+It proposes `<your library>/principal/monthly-review` when it finds a `principal/` folder,
+otherwise `~/monthly-review`. Confirm with `--base <path>` and the choice is remembered.
+Never inside the skill folder.
+
 ## Update
 
 Re-run the same command. It replaces the old version and prints `old → new`:
@@ -129,6 +141,17 @@ AGENT_SKILLS_DIR=./skills bash install.sh
 
 
 安装器会自动找技能根目录：`./skills` → `~/.agents/skills` → `~/skills`，都没有就建 `~/.agents/skills`。
+## 月报放哪
+
+安装器不替你决定。让技能自己算：
+
+```bash
+python3 <skills>/consulting/monthly-growth-review-beta/scripts/where.py
+```
+
+找到 `principal/` 的库，就建议 `<你的库>/principal/monthly-review`；找不到才退到家目录 `~/monthly-review`。
+确认后 `--base <路径>` 固定下来，下次不用再问。绝不放技能目录里。
+
 ## 更新
 
 重跑同一条命令即可，会覆盖旧版并打印「旧版本 → 新版本」：
