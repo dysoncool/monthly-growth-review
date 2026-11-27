@@ -36,13 +36,8 @@ Custom skills root:
 AGENT_SKILLS_DIR=./skills bash install.sh
 ```
 
-Or via npx (needs Node 18+):
 
-```bash
-npx github:dysoncool/monthly-growth-review-beta
-```
-
-Both auto-detect your skills root: `./skills` → `~/.agents/skills` → `~/skills` → fallback `~/.agents/skills`.
+The installer auto-detects your skills root: `./skills` → `~/.agents/skills` → `~/skills` → fallback `~/.agents/skills`.
 ## Update
 
 Re-run the same command. It replaces the old version and prints `old → new`:
@@ -128,13 +123,8 @@ curl -fsSL https://raw.githubusercontent.com/dysoncool/monthly-growth-review-bet
 AGENT_SKILLS_DIR=./skills bash install.sh
 ```
 
-也可以用 npx（Node 18 以上）：
 
-```bash
-npx github:dysoncool/monthly-growth-review-beta
-```
-
-两者都会自动找技能根目录：`./skills` → `~/.agents/skills` → `~/skills`，都没有就建 `~/.agents/skills`。
+安装器会自动找技能根目录：`./skills` → `~/.agents/skills` → `~/skills`，都没有就建 `~/.agents/skills`。
 ## 更新
 
 重跑同一条命令即可，会覆盖旧版并打印「旧版本 → 新版本」：
