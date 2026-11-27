@@ -43,6 +43,16 @@ npx github:dysoncool/monthly-growth-review-beta
 ```
 
 Both auto-detect your skills root: `./skills` → `~/.agents/skills` → `~/skills` → fallback `~/.agents/skills`.
+## Update
+
+Re-run the same command. It replaces the old version and prints `old → new`:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/dysoncool/monthly-growth-review-beta/main/install.sh | bash
+```
+
+Your monthly reports stay where they are — the skill directory holds no data.
+
 ## First run
 
 ```bash
@@ -125,6 +135,16 @@ npx github:dysoncool/monthly-growth-review-beta
 ```
 
 两者都会自动找技能根目录：`./skills` → `~/.agents/skills` → `~/skills`，都没有就建 `~/.agents/skills`。
+## 更新
+
+重跑同一条命令即可，会覆盖旧版并打印「旧版本 → 新版本」：
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/dysoncool/monthly-growth-review-beta/main/install.sh | bash
+```
+
+你的月报不在技能目录里，更新不影响数据。
+
 ## 第一次用
 
 ```bash

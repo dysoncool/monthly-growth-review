@@ -18,10 +18,9 @@ fi
 [ -z "$ROOT" ] && ROOT="$HOME/.agents/skills"
 DEST="$ROOT/consulting/$NAME"
 
-if [ -d "$DEST" ] && [ "${FORCE:-0}" != "1" ]; then
-  echo "! 已存在：$DEST"
-  echo "  要覆盖：FORCE=1 再跑一次"
-  exit 2
+OLD=""
+if [ -d "$DEST" ]; then
+  OLD="$(cat "$DEST/VERSION" 2>/dev/null || echo "未知版本")"
 fi
 
 TMP="$(mktemp -d)"
@@ -34,7 +33,13 @@ SRC="$(find "$TMP" -maxdepth 2 -type d -name skill | head -1)"
 mkdir -p "$(dirname "$DEST")"
 rm -rf "$DEST"
 cp -R "$SRC" "$DEST"
-echo "✔ 已安装到：$DEST"
+NEW="$(cat "$DEST/VERSION" 2>/dev/null || echo "?")"
+if [ -n "$OLD" ]; then
+  echo "✔ 已更新：$OLD → $NEW"
+else
+  echo "✔ 已安装：$NEW"
+fi
+echo "  位置：$DEST"
 echo "  技能根目录：$ROOT（用 AGENT_SKILLS_DIR 可改）"
 echo ""
 echo "下一步："

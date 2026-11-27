@@ -33,14 +33,22 @@ const target = path.join(resolveRoot(), 'consulting', 'monthly-growth-review-bet
 const src = path.join(__dirname, '..', 'skill');
 
 if (!fs.existsSync(src)) { console.error('✘ 找不到 skill 目录，包可能损坏'); process.exit(1); }
-if (fs.existsSync(target) && !force) {
-  console.log('! 目标已存在：' + target);
-  console.log('  加 --force 覆盖，或先备份');
-  process.exit(2);
-}
+const readVer = (dir) => {
+  try { return fs.readFileSync(path.join(dir, 'VERSION'), 'utf8').trim(); } catch { return '未知版本'; }
+};
+const oldVer = fs.existsSync(target) ? readVer(target) : '';
+const isUpdate = Boolean(oldVer);
 fs.mkdirSync(path.dirname(target), { recursive: true });
+if (isUpdate) fs.rmSync(target, { recursive: true, force: true });
 fs.cpSync(src, target, { recursive: true });
-console.log('✔ 已安装到：' + target);
+const newVer = readVer(target);
+if (isUpdate) {
+  console.log('✔ 已更新：' + oldVer + ' → ' + newVer);
+  console.log('  （新版覆盖旧版；你的月报和数据在别处，不受影响）');
+} else {
+  console.log('✔ 已安装：' + newVer);
+}
+console.log('  位置：' + target);
 console.log('  （技能根目录：' + resolveRoot() + '；换位置用 --target）');
 console.log('');
 console.log('下一步：');
