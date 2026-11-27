@@ -36,21 +36,17 @@ cp -R monthly-growth-review/skill <你的技能目录>/consulting/monthly-growth
 
 ## 安装
 
-> 还没发布到 npm，`npx monthly-growth-review` 会 404。请用下面这条命令。
+```bash
+npx monthly-growth-review
+```
 
-一条命令，不需要任何账号：
+不用 npm 的话，走 curl：
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/dysoncool/monthly-growth-review/main/install.sh | bash
 ```
 
-换目录：
-
-```bash
-AGENT_SKILLS_DIR=./skills bash install.sh
-```
-
-
+换技能目录：把 `AGENT_SKILLS_DIR=./skills` 加在命令前面。
 安装器会自动找技能根目录：`./skills` → `~/.agents/skills` → `~/skills`，都没有就建 `~/.agents/skills`。
 ## 月报放哪
 
