@@ -9,6 +9,7 @@ from urllib.request import Request, urlopen
 HOME = os.path.expanduser("~")
 REPO = "dysoncool/monthly-growth-review"
 NAME = "monthly-growth-review"
+LEGACY = ("monthly-growth-review-beta", "monthly-growth-review-share")
 MAXD = 5
 
 

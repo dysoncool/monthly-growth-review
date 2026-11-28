@@ -24,6 +24,7 @@ python3 scripts/check_page.py <成品>                              # 3. 自检 
 - **禁止自己写 HTML/CSS**；禁止改 `<style>` 里任何一行；不换框架、不换字体、不加减 class。
 - 用户说「样式不对」→ 第一动作是跑 `check_update.py`，不是改样式。
 - 自检结果要贴给用户，不许只说「已通过」。
+- **改过任何脚本，必须跑 `selftest.py`**：只做语法检查抓不到未定义变量，跑一遍才知道。
 
 ## 一、开工前先定四件事（一次问清，别边做边问）
 
@@ -102,6 +103,7 @@ python3 scripts/check_continuity.py --base <库> --records <记录目录1> <记�
 python3 scripts/check_page.py <成品.html>      # 19 项
 python3 scripts/check_clean.py <成品.html>     # 脱敏：不许留真名、真金额、本机路径
 python3 scripts/check_update.py               # 版本与模板是否最新、有没有被改
+python3 scripts/selftest.py                   # 六个脚本各真跑一遍，只抓崩溃
 ```
 
 全绿再发。**发文件必须写 `MEDIA:<绝对路径>`**，漏了＝发不出去。
